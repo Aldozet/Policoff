@@ -1,14 +1,21 @@
 <?php
 
-    $conex = mysqli_connect("localhost", "root", "", "policoffv2");
+    /*$conex = mysqli_connect("localhost", "root", "", "policoffv2");
+    $conex->set_charset("utf8");
 
-    if ($conex) {
-        echo "todo bien";
-        
-    }else{
+    if (!$conex) {
 
-        echo "todo mal";
-    }
+        die("Error de conexión: " . mysqli_connect_error());
+
+    }else {
+
+        echo "Conexión exitosa";
+
+    }*/
+
+
+
+    
 
 if (isset($_POST['Enviar'])) {
 
@@ -21,7 +28,7 @@ if (isset($_POST['Enviar'])) {
         !empty($_POST['contraseñaUsuario'])
     ) {
 
-        $idUsuario = "110";
+        $idUsuario = null;
         $apellidoPaterno = trim($_POST['apellidoPaterno']);
         $apellidoMaterno = trim($_POST['apellidoMaterno']);
         $nombre = trim($_POST['nombreUsuario']);
@@ -44,6 +51,7 @@ if (isset($_POST['Enviar'])) {
             mysqli_stmt_execute($stmt);
             $num_rows = mysqli_stmt_affected_rows($stmt);
             mysqli_stmt_close($stmt);
+            echo '<div class="alerta">Usuario registrado correctamente</div>';
         }
     }
 }

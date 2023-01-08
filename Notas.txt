@@ -52,3 +52,44 @@
 </body>
 
 </html>
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    /*if (!empty($_POST["Enviar"])) {
+        if (empty($_POST["apellidoPaterno"]) ||
+            empty($_POST["apellidoMaterno"]) ||
+            empty($_POST["nombreUsuario"]) ||
+            empty($_POST["identificador"]) ||
+            empty($_POST["correoElectronico"]) ||
+            empty($_POST["usuario"]) ||
+            empty($_POST["contraseñaUsuario"])) 
+        {
+
+            echo'<div class="alerta">Uno de los campos esta vacio</div>';
+
+        }else {
+
+            $idUsuario = "110";
+            $apellidoPaterno = trim($_POST["apellidoPaterno"]);
+            $apellidoMaterno = trim($_POST["apellidoMaterno"]);
+            $nombre = trim($_POST["nombreUsuario"]);
+            $tipo = trim($_POST["identificador"]);
+            $correoInstitucional = trim($_POST["correoElectronico"]);
+            $nombreUsuario = trim($_POST["usuario"]);
+            $password = trim($_POST["contraseñaUsuario"]);
+            
+            $sql = $conex->query("INSERT INTO `usuario`(`idUsuario`, `nombre`, `apellidoMaterno`, `apellidoPaterno`, `correoInstitucional`, `tipo`, `nombreUsuario`, `password`) VALUES($idUsuario, $nombre, $apellidoMaterno, $apellidoPaterno, $correoInstitucional, $tipo, $nombreUsuario, $password)");
+            if ($sql == 1) {
+
+                echo '<div class="alerta">Usuario registrado correctamente</div>';
+
+            } else {
+
+                echo '<div class="alerta">Error al registrar usuario</div>';
+
+            }
+            
+            
+        }
+    }*/
