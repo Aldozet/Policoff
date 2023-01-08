@@ -1,0 +1,410 @@
+body {
+    margin: 0px;
+    display: flex;
+    flex-flow: column wrap;
+
+}
+
+.cabecera {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #F2F2F2 solid;
+    margin: 0px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.cabecera div {
+    /*background-color: bisque;*/
+    height: 99%;
+
+}
+
+.LogoUbi {
+    width: 99%;
+    max-width: 8em;
+}
+
+#logo1 {
+    /* logo */
+    width: 99%;
+    max-width: 4em;
+    padding: 2px;
+
+    margin: 1px;
+}
+
+#bloque1 {
+    width: 14em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+
+}
+
+#logo2 {
+    /* nombre */
+    height: 50px;
+    min-width: 2em;
+    min-height: 2em;
+    max-width: 40em;
+    padding: 2px;
+
+    margin: 1em;
+
+}
+
+#usuarioPerfil{
+    width: 14em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+#PerfilUsuario {
+    color: #000;
+    text-decoration: none;
+
+}
+
+#iconoUsuario {
+    width: 3.5em;
+    /*border: #ffffff solid 1em;*/
+    border-radius: 5em;
+    margin:1em;
+}
+
+#Registro {
+    color: #ffffff;
+    /* color de letra*/
+    background-color: #F68B11;
+    /* color de fondo*/
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 6.5px;
+    padding-bottom: 6px;
+    margin-left: 7em;
+    margin-right: 1em;
+    text-decoration: none;
+    /* Quita subrayado*/
+    font-family: 'Century Gothic';
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('../recursos/CenturyGothic.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+#menu_icon {
+    /* inicia css de menu desplegable*/
+    width: 24px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    text-indent: -9999px;
+    margin: 1.5em;
+
+}
+
+
+
+#menu_icon::after {
+    content: '';
+    width: 24px;
+    height: 4px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0px 0 #000,
+        0 8px 0 #000,
+        0 16px 0 #000;
+    transition: all .2s;
+}
+
+#menu_icon:hover::after {
+    width: 20px;
+    margin-left: 2px;
+}
+
+/* termina css de menu desplegable*/
+
+
+footer {
+    /*border: #000000 solid;*/
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: none;
+    padding: 1em;
+    background-color: #F68B11;
+    font-family: 'Century Gothic';
+    color: #ffffff;
+    padding: 4em;
+    text-align: center;
+
+}
+
+footer p {
+
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+}
+
+#ESCOM {
+    color: #ffffff;
+
+}
+
+
+#tituloRegProducto {
+    font-family: 'Century Gothic';
+    font-size: 0.7cm;
+    font-weight: bold;
+    font-weight: 900;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#MensajeAdmi{
+    font-family: 'Century Gothic';
+    width: 42em;
+    font-size: small;
+}
+
+#botonenvio {
+    font-family: 'Century Gothic';
+    background-color: #F68B11;
+    border: none;
+    border-radius: 1em;
+    margin: 2em;
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    mar
+
+}
+
+#botonSecion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.RegistroProducto{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.registroPro{
+    font-family: 'Century Gothic';
+    border: #F2F2F2 solid;
+    border-radius: 1em;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 10em;
+    background-color:#F2F2F2;
+
+}
+
+#DatosGenerales{
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: #F2F2F2;
+
+}
+
+#DescripcionProducto{
+
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 1em;
+    background-color: #F2F2F2;
+
+}
+
+#Ingredientes{
+    border: solid #ffffff;
+    border-radius: 1em;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 5em;
+    padding-bottom: 2em;
+    background-color: #F2F2F2;
+    margin-bottom: 1em;
+}
+
+
+#Cate{
+    border: solid #ffffff;
+    border-radius: 1em;
+    padding: .2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #FFFFFF;
+    margin-bottom: 1em;
+    
+}
+
+
+#Cat1{
+    border: solid #ffffff;
+    border-radius: 1em;
+    padding-top: 5px;
+    padding-left: 10px;
+    background-color: #F2F2F2;
+    margin-bottom: 1em;
+    padding-right: 16em;
+}
+
+#Prec{
+    border: solid #ffffff;
+    border-radius: 1em;
+    padding: .2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: #FFFFFF;
+    margin-bottom: 1em;
+}
+
+#Precio {
+
+    border: solid #ffffff;
+    /*border-left: none;*/
+    border-radius: 1em;
+    padding-top: 5px;
+    padding-left: 10px;
+    background-color: #F2F2F2;
+    margin-bottom: 1em;
+    padding-right: 10.8em
+}
+
+.file-input-group{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+
+}
+
+.file-input-group input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    
+}
+
+#cajaAgreImg{
+
+    border:dashed;
+    border-color: #ffffff;
+    border-radius: 1em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-bottom: 1em;
+
+}
+
+.form-control1{
+        background-color: #F2F2F2;
+        border: none;
+        padding-right: 23em;
+
+}
+
+.btn-secondary{
+    font-weight: 900;
+    color: #ffffff;
+    padding:5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 100%;
+    background-color: #a79e9e;
+
+}
+
+
+.registroCaf{
+
+    font-family: 'Century Gothic';
+    border: #F2F2F2 solid;
+    border-radius: 1em;
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: #F2F2F2;
+
+}
+
+#cajaCfeteria{
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+
+}
+
+#Categoria{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F2F2;
+    margin-right: 1em;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 2em;
+    border-radius: 1em;
+    border: #ffffff solid;
+
+}
+
+#Institucion{
+
+    background-color: #F2F2F2;
+    margin-right: 1em;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 2em;
+    border-radius: 1em;
+    border: #ffffff solid;
+
+}
+
+#Proveedor{
+
+    background-color: #F2F2F2;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 2em;
+    border-radius: 1em;
+    border: #ffffff solid;
+    
+}
+
