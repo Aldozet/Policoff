@@ -296,7 +296,7 @@ footer p {
     padding-right: 10.8em
 }
 
-.file-input-group{
+/*.file-input-group{
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
@@ -311,7 +311,7 @@ footer p {
     position: absolute;
     z-index: -1;
     
-}
+}*/
 
 #cajaAgreImg{
 
@@ -325,7 +325,7 @@ footer p {
 
 }
 
-.form-control1{
+/*.form-control1{
         background-color: #F2F2F2;
         border: none;
         padding-right: 23em;
@@ -341,7 +341,7 @@ footer p {
     border-radius: 100%;
     background-color: #a79e9e;
 
-}
+}*/
 
 
 .registroCaf{

@@ -34,7 +34,7 @@
                 </map>
             </div>
             <div id="usuarioPerfil">
-                <a href="../paginas/perfilUsuario.html" id="PerfilUsuario">Mi perfil</a>
+                <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
                 <img id="iconoUsuario" alt="iconoUsuario" src="../iconos/iconoUsuario.jpg">
             </div>
         </section>
@@ -46,7 +46,7 @@
             <p id="MensajeAdmi">Cada solicitud de ingreso de producto sera evaluada por un administrador y en caso de
                 ser apectada se reflejara la informacion en la plataforma</p>
 
-            <form id="registroPro" name="registroPro" action="../paginas/respuesta.php" method="post"
+            <form id="registroPro" name="registroPro" action="" method="post"
                 enctype="multipart/form-data" autocomplete="on">
 
                 <div class="registroCaf">

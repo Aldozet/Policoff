@@ -34,7 +34,7 @@
                 </map>
             </div>
             <div id="usuarioPerfil">
-                <a href="../paginas/perfilUsuario.html" id="PerfilUsuario">Mi perfil</a>
+                <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
                 <img id="iconoUsuario" alt="iconoUsuario" src="../iconos/iconoUsuario.jpg">
             </div>
         </section>
@@ -45,18 +45,22 @@
 
             <p id="MensajeAdmi">Cada solicitud de ingreso de producto sera evaluada por un administrador y en caso de ser apectada se reflejara la informacion en la plataforma</p>
 
-            <form id="registroPro" name="registroPro" action="../paginas/respuesta.php" method="post" enctype="multipart/form-data" autocomplete="on">
+            <form id="registroPro" name="registroPro" action="" method="post" enctype="multipart/form-data" autocomplete="on">
+                <?php
+                include("../phpBack/con_db.php");
+                include("../phpBack/regProducto.php");
 
+                ?>
                 <div class="registroPro">
 
                     <label for="DescripcionProducto">Descripción:</label>
                     <input type="text" id="DescripcionProducto" name="DescripcionProducto" size="30" maxlength="30" placeholder="Nombre del producto" required pattern="[A-Za-z0-9]+"><br>
 
                     <label for="Ingredientes"></label>
-                    <input type="Ingredientes" id="Ingredientes" name="Ingredientes" size="60" maxlength="100" placeholder="Ingredientes:" required=""><br>
+                    <input type="text" id="Ingredientes" name="Ingredientes" size="60" maxlength="100" placeholder="Ingredientes:" required=""><br>
 
                     <label for="Categoria" id="Cate">Categoría</label>
-                    <select id="Cat1" required>
+                    <select id="Cat1" name="categoria" required>
                         <option value="Preparado">Preparado</option>
                         <option value="Empaquetado">Empaquetado</option>
                         <option value="Liquido">Líquido</option>
@@ -65,14 +69,12 @@
                     <label for="Precio" id="Prec">Precio</label>
                     <input type="text" id="Precio" name="Precio" size="30" maxlength="6" placeholder="Precio" required="" pattern="[0-9]+\.[0-9]+"><br>
 
-                    <div id="cajaAgreImg" class="input-group file-input-group" data-controller="file-input">
-                        <input class="form-control1" type="text" placeholder="Añadir Imagen:" readonly data-target="file-input.value">
+                    <div id="cajaAgreImg">
 
-                        <input type="file" class="form-control" id="customFile" data-target="file-input.input" data-action="file-input#display">
-                        <div class="input-group-append">
-                            <label class="btn-secondary" for="customFile">+</label>
-                        </div>
+                        <input type="file" id="subImagen" name="imagen"><br>
+
                     </div>
+                </div>
 
                 </div>
 
