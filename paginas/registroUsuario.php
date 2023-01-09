@@ -32,7 +32,7 @@
                 </map>
             </div>
             <div id="inicioRegistro">
-                <a href="../paginas/inicioSesion.html" /*target="conDinamico" */ id="IniciarSesion">Iniciar sesión</a>
+                <a href="../paginas/inicioSesion.php"  */ id="IniciarSesion">Iniciar sesión</a>
             </div>
         </section>
         <section class="FormReg">
@@ -40,8 +40,8 @@
                 <!--enctype="multipart/form-data" en caso de requerir imagenes para que si es muy grande la segmente y envie-->
                 <p id="tituloregistro">Registro</p>
                 <?php
-                    include("./con_db.php");
-                    include("./regUsuario.php");
+                    include("../phpBack/con_db.php");
+                    include("../phpBack/regUsuario.php");
 
                 ?>
                 <label for="apellidoPaterno"></label>

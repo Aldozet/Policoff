@@ -32,25 +32,28 @@
                 </map>
             </div>
             <div id="inicioRegistro">
-                <a href="../paginas/registroUsuario.html" /*target="conDinamico" */ id="Registro">Registro</a>
+                <a href="../paginas/registroUsuario.php" /*target="conDinamico" */ id="Registro">Registro</a>
             </div>
         </section>
 
         <section class="FormSecion">
-            <form id="inicioSesion" name="inicioSesion" action="../paginas/respuesta.php" method="post"
-                enctype="multipart/form-data" autocomplete="on">
+            <form id="inicioSesion" name="inicioSesion" action="" method="post" enctype="multipart/form-data" autocomplete="on">
 
                 <img id="iconoUsuario" alt="iconoUsuario" src="../iconos/iconoUsuario.jpg">
 
                 <p id="tituloinicioSecion">Iniciar sesión</p>
-                
+
+                <?php
+                include("../phpBack/con_db.php");
+                include("../phpBack/login.php");
+
+                ?>
+
                 <label for="usuario"></label>
-                <input type="text" id="usuario" name="usuario" size="30" maxlength="30" placeholder="Usuario"
-                    required=""><br>
+                <input type="text" id="usuario" name="usuario" size="30" maxlength="30" placeholder="Usuario" required=""><br>
 
                 <label for="contraseñaUsuario"></label>
-                <input type="password" name="contraseñaUsuario" id="contraseñaUsuario"
-                    placeholder="contraseña" maxlength="25" size="30" required=""> <br>
+                <input type="password" name="contraseñaUsuario" id="contraseñaUsuario" placeholder="contraseña" maxlength="25" size="30" required=""> <br>
 
                 <div id="botonSecion">
                     <input type="submit" value="Acceder" name="Enviar" id="botonenvio">
