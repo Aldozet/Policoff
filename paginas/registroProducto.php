@@ -7,8 +7,6 @@
     <link href="../estilo/registroProCaf.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="../iconos/LOGOTIPO-05.png">
 
-    <script type="text/javascript" src="../scripts/FileInputController.js"></script>
-
 </head>
 
 <body>
@@ -49,34 +47,34 @@
                 <?php
                 include("../phpBack/con_db.php");
                 include("../phpBack/regProducto.php");
-
                 ?>
                 <div class="registroPro">
+                    
 
                     <label for="DescripcionProducto">Descripción:</label>
-                    <input type="text" id="DescripcionProducto" name="DescripcionProducto" size="30" maxlength="30" placeholder="Nombre del producto" required pattern="[A-Za-z0-9]+"><br>
+                    <input type="text" id="DescripcionProducto" name="DescripcionProducto" size="30" maxlength="30" placeholder="Nombre del producto" required=""><br>
 
                     <label for="Ingredientes"></label>
                     <input type="text" id="Ingredientes" name="Ingredientes" size="60" maxlength="100" placeholder="Ingredientes:" required=""><br>
 
                     <label for="Categoria" id="Cate">Categoría</label>
-                    <select id="Cat1" name="categoria" required>
+                    <select id="Cat1" name="categoria" required="">
                         <option value="Preparado">Preparado</option>
                         <option value="Empaquetado">Empaquetado</option>
                         <option value="Liquido">Líquido</option>
                     </select><br>
 
                     <label for="Precio" id="Prec">Precio</label>
-                    <input type="text" id="Precio" name="Precio" size="30" maxlength="6" placeholder="Precio" required="" pattern="[0-9]+\.[0-9]+"><br>
+                    <input type="text" id="Precio" name="Precio" size="30" maxlength="6" placeholder="Precio ejemplo = 10.0" required="" pattern="[0-9]+\.[0-9]+"><br>
 
                     <div id="cajaAgreImg">
 
-                        <input type="file" id="subImagen" name="imagen"><br>
+                        <label for="imagen"></label>
+                        <input type="file" id="subImagen" name="imagen">
 
                     </div>
                 </div>
 
-                </div>
 
                 <div id="botonSecion">
                     <input type="submit" value="Enviar" name="Enviar" id="botonenvio">

@@ -46,38 +46,34 @@
             <p id="MensajeAdmi">Cada solicitud de ingreso de producto sera evaluada por un administrador y en caso de
                 ser apectada se reflejara la informacion en la plataforma</p>
 
-            <form id="registroPro" name="registroPro" action="" method="post"
-                enctype="multipart/form-data" autocomplete="on">
+            <form id="registroPro" name="registroPro" action="" method="post" enctype="multipart/form-data" autocomplete="on">
 
                 <div class="registroCaf">
+                    <?php
+                    include("../phpBack/con_db.php");
+                    include("../phpBack/regCafeteria.php");
 
+                    ?>
                     <label for="DatosGenerales">Datos Generales:</label>
-                    <input type="text" id="DatosGenerales" name="DatosGenerales" size="30" maxlength="30"
-                        placeholder="Nombre de la cafeteria" required="" pattern="[A-Za-z0-9]+"><br>
+                    <input type="text" id="DatosGenerales" name="DatosGenerales" size="30" maxlength="30" placeholder="Nombre de la cafeteria" required=""><br>
 
                     <div id="cajaCfeteria">
 
-                    <label for="Categoria"></label>
-                    <input type="text" id="Categoria" name="Categoria" size="30" maxlength="30" placeholder="Categoría:" required=""><br>
-                    
-                    <label for="Institucion"></label>
-                    <input type="text" id="Institucion" name="Institucion" size="30" maxlength="30" placeholder="Institución:"
-                        required=""><br>
-                    
-                    <label for="Proveedor"></label>
-                    <input type="text" id="Proveedor" name="Proveedor" size="30" maxlength="30" placeholder="Proveedor:" required=""><br>
+                        <label for="Categoria"></label>
+                        <input type="text" id="Categoria" name="Categoria" size="30" maxlength="30" placeholder="Ubicación:" required=""><br>
+
+                        <label for="Institucion"></label>
+                        <input type="text" id="Institucion" name="Institucion" size="30" maxlength="30" placeholder="Institución:" required=""><br>
+
+                        <label for="Proveedor"></label>
+                        <input type="text" id="Proveedor" name="Proveedor" size="30" maxlength="30" placeholder="Proveedor:" required=""><br>
 
                     </div>
 
-                    <div id="cajaAgreImg" class="input-group file-input-group" data-controller="file-input">
-                        <input class="form-control1" type="text" placeholder="Añadir Imagen:" readonly
-                            data-target="file-input.value">
+                    <div id="cajaAgreImg">
 
-                        <input type="file" class="form-control" id="customFile" data-target="file-input.input"
-                            data-action="file-input#display">
-                        <div class="input-group-append">
-                            <label class="btn-secondary" for="customFile">+</label>
-                        </div>
+                        <input type="file" id="subImagen" name="imagen">
+
                     </div>
 
                 </div>
