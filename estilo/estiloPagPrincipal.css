@@ -1,0 +1,36 @@
+
+
+.PagPrincipal{
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    align-items: center;
+    /*border: #000 solid;*/
+    width: 100%;
+
+}
+
+.PagPrincipal::-webkit-scrollbar {
+    display: none;
+}
+
+.marco{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border: #F2F2F2 solid;
+    margin: 2em;
+    padding: 2em;
+    width: 20em;
+    height: 22em ;
+    border-radius: 1em;
+    font-family: 'Century Gothic';
+
+}
+
+.marco::-webkit-scrollbar {
+    display: none;
+}
+
+
