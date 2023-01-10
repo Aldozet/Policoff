@@ -26,7 +26,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $connection = mysqli_connect("localhost", "root", "", "policoff");
+                                $connection = mysqli_connect("localhost", "root", "", "policoffv2");
                                 $query = "SELECT nombre,imagen FROM cafeteria;";
                                 $res = mysqli_query($connection, $query);
                                 while ($row = mysqli_fetch_assoc($res)) {
@@ -36,9 +36,8 @@
                                             <?php echo $row['nombre']; ?>
                                         </td>
                                         <td>
-                                            <?php
-                                            echo '<img alt="imagen1" width="100" src="data:image/jpg;base64,' . $row['nombre'] . ';base64,' . base64_encode($row['imagen']) . '">';
-                                            ?>
+                                            <img width="100" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
+
                                         </td>
                                     </tr>
                                 <?php

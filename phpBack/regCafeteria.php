@@ -1,6 +1,5 @@
 <?php
 
-echo '<div class="alerta">paso 1</div>';
 if (isset($_POST['Enviar'])) {
 
     if (!empty($_POST['DatosGenerales']) &&
@@ -14,8 +13,17 @@ if (isset($_POST['Enviar'])) {
         $categoria= trim($_POST['Categoria']);
         $institucion = trim($_POST['Institucion']);
         $proveedor = trim($_POST['Proveedor']);
-        $imagen = trim($_POST['imagen']);
 
+        if (count($_FILES) > 0) {
+
+            if (is_uploaded_file($_FILES['imagen']['tmp_name'])) {
+                $imgData = file_get_contents($_FILES['imagen']['tmp_name']);
+                $imagen  = $_FILES['imagen']['type'];
+            }
+        } else {
+
+            $imagen = null;
+        }
 
         // Verifica que la conexión se haya realizado correctamente
         if ($conex !== FALSE)
@@ -25,7 +33,7 @@ if (isset($_POST['Enviar'])) {
             if (mysqli_stmt_prepare($stmt, "INSERT INTO `cafeteria`(`idCafeteria`, `nombre`, `imagen`, `fk_escuela`, `Proveedor`) VALUES (?,?,?,?,?)")) {
                 // Vincula las variables a los parámetros de la sentencia
 
-                mysqli_stmt_bind_param($stmt, "isssss", $idCafeteria, $datosGenerales, $imagen, $institucion, $proveedor);
+                mysqli_stmt_bind_param($stmt, "issis", $idCafeteria, $datosGenerales, $imagen, $institucion, $proveedor);
                 mysqli_stmt_execute($stmt);
 
                 $num_rows = mysqli_stmt_affected_rows($stmt);

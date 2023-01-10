@@ -55,12 +55,12 @@
 
                     ?>
                     <label for="DatosGenerales">Datos Generales:</label>
-                    <input type="text" id="DatosGenerales" name="DatosGenerales" size="30" maxlength="30" placeholder="Nombre de la cafeteria" required="" pattern="[A-Za-z0-9]+"><br>
+                    <input type="text" id="DatosGenerales" name="DatosGenerales" size="30" maxlength="30" placeholder="Nombre de la cafeteria" required=""><br>
 
                     <div id="cajaCfeteria">
 
                         <label for="Categoria"></label>
-                        <input type="text" id="Categoria" name="Categoria" size="30" maxlength="30" placeholder="Categoría:" required=""><br>
+                        <input type="text" id="Categoria" name="Categoria" size="30" maxlength="30" placeholder="Ubicación:" required=""><br>
 
                         <label for="Institucion"></label>
                         <input type="text" id="Institucion" name="Institucion" size="30" maxlength="30" placeholder="Institución:" required=""><br>

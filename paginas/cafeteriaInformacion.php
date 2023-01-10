@@ -36,6 +36,46 @@
         </section>
         <section>
             <div id="secInfo1">
+                <table class="table table-striped">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Imagen</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <?php
+                        $connection = mysqli_connect("localhost", "root", "", "policoffv2");
+                        $cafe = 1;
+                        $query = "SELECT nombre,imagen,proveedor FROM cafeteria WHERE idCafeteria = $cafe;";
+                        //$query = "SELECT nombre,imagen FROM cafeteria where nombre = 'nombre';"; nombre seleccionado de una opcion previas
+
+                        $res = mysqli_query($connection, $query);
+                        while ($row = mysqli_fetch_assoc($res)) {
+                        ?>
+                            <tr>
+                                <td>
+                                    <?php echo $row['nombre']; ?>
+                                </td>
+                                <td>
+                                    <img width="100" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
+
+                                </td>
+
+                                <td>
+                                    <?php echo $row['proveedor']; ?>
+                                </td>
+
+
+
+
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
 
             </div>
             <div id="secInfo2">
@@ -45,7 +85,7 @@
 
             </div>
             <div id="secInfo4">
-                
+
             </div>
 
         </section>

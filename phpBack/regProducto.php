@@ -28,8 +28,6 @@ if (isset($_POST['Enviar'])) {
             $imagen = null;
         }
 
-
-
         // Verifica que la conexión se haya realizado correctamente
         if ($conex !== FALSE)
         {
