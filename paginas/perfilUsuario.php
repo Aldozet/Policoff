@@ -23,7 +23,6 @@
                     </map>
                 </div>
             </div>
-        
             <div>
                 <img id="logo2" alt="logoPrincipal" src="../iconos/LOGOTIPO-06.png" usemap="#Policoff">
                 <map name="#Policoff">
@@ -31,14 +30,33 @@
                 </map>
             </div>
             <div id="inicioRegistro">
-                <a href="../index.html"  */ id="Registro">Cerrar Sesion</a>
+                <a href="../index.html" */ id="Registro">Cerrar Sesion</a>
             </div>
         </section>
 
-        <section>
-            
-            
+        <section></section>
 
+        <?php session_start();
+        include("../phpBack/con_db.php");
+
+        $correo = $_SESSION['correo'] = 'vanepoli@ipn.mx';
+        $_SESSION['nombre'] = 'Vanesa';
+
+
+        echo "Bienvenida  " . $_SESSION['correo'];
+        echo "Bienvenida  " . $_SESSION['nombre'];
+
+        // Select data from the database using the value of the session variable
+        $sql = "SELECT idUsuario, nombre, apellidoMaterno, apellidoPaterno, correoInstitucional, tipo, nombreUsuario FROM usuario WHERE correoInstitucional = '$correo'";
+        $result = mysqli_query($conn, $sql);
+
+        // Loop through the result set and output the data
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo $row['idUsuario'] . ' ' . $row['nombre'] . '' . $row['apellidoMaterno'] . '' . $row['apellidoPaterno'] . '' . $row['correoInstitucional'] . '' . $row['tipo'] . '' . $row['nombreUsuario'];
+            echo "<br>";
+        }
+
+        ?>
 
         </section>
 
