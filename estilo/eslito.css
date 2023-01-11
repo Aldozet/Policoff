@@ -91,6 +91,26 @@ body {
     font-weight: bold;
 }
 
+#CerrarSesion{
+
+        color: #ffffff;
+            /* color de letra*/
+            background-color: #F68B11;
+            /* color de fondo*/
+            border-radius: 1em;
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-top: 6.5px;
+            padding-bottom: 6px;
+            margin-left: 4px;
+            margin-right: 1em;
+            text-decoration: none;
+            /* Quita subrayado*/
+            font-family: 'Century Gothic';
+            font-weight: bold;
+
+}
+
 
 #hamburguesa{
     

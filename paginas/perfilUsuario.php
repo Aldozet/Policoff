@@ -19,14 +19,14 @@
                 <div>
                     <img id="logo1" alt="logoPrincipal" src="../iconos/LOGOTIPO-05.png" usemap="#PoliLogo">
                     <map name="#PoliLogo">
-                        <area shape="circle" coords="0,0,300," alt="Poli Coff" href="../index.html" title="Poli Coff">
+                        <area shape="circle" coords="0,0,300," alt="Poli Coff" href="../paginas/principal.php" title="Poli Coff">
                     </map>
                 </div>
             </div>
             <div>
                 <img id="logo2" alt="logoPrincipal" src="../iconos/LOGOTIPO-06.png" usemap="#Policoff">
                 <map name="#Policoff">
-                    <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="../index.html" title="Poli Coff">
+                    <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="../paginas/principal.php" title="Poli Coff">
                 </map>
             </div>
             <div id="inicioRegistro">
@@ -36,7 +36,7 @@
 
         <section>
 
-            <?php 
+            <?php
             session_start();
             include("../phpBack/con_db.php");
 
@@ -72,7 +72,6 @@
                         echo "Tipo: " . $tipo . "<br>";
                     }
                     echo "</div>";
-
                 } else {
                     echo "El usuario no existe en la base de datos";
                 }
@@ -88,7 +87,7 @@
         <section>
             <div id="RegistroProCaf">
                 <a href="../paginas/registroCafeteria.php" id="RegistroCafeteria" class="boton">Registro Cafeteria</a>
-                <a href="../paginas/registroProducto.php" id="RegistroProducto" class="boton"   >Registro Producto</a>
+                <a href="../paginas/registroProducto.php" id="RegistroProducto" class="boton">Registro Producto</a>
             </div>
 
         </section>
