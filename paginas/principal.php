@@ -1,10 +1,14 @@
 <?php
 session_start();
 if (isset($_SESSION['nombreUsuario'])) {
-    $loginLink = "<a href='../index.html' id='CerrarSesion'>Cerrar sesión</a>";
+    $loginLink = "<a href='../index.php?logout' id='CerrarSesion'>Cerrar sesión</a>";
 } else {
     $loginLink = "<a href='../paginas/inicioSesion.php' id='IniciarSesion'>Iniciar sesión</a>
                         <a href='../paginas/registroUsuario.php' id='Registro'>Registro</a>";
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: ../index.php");
 }
 ?>
 <!DOCTYPE html>

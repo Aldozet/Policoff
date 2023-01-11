@@ -1,10 +1,14 @@
 <?php
 session_start();
 if (isset($_SESSION['nombreUsuario'])) {
-    $loginLink = "<a href='../index.html' id='CerrarSesion'>Cerrar sesión</a>";
+    $loginLink = "<a href='../index.php?logout' id='CerrarSesion'>Cerrar sesión</a>";
 } else {
     $loginLink = "<a href='../paginas/inicioSesion.php' id='IniciarSesion'>Iniciar sesión</a>
                         <a href='../paginas/registroUsuario.php' id='Registro'>Registro</a>";
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: ../index.php");
 }
 ?>
 
@@ -42,6 +46,7 @@ if (isset($_SESSION['nombreUsuario'])) {
             <div id="caja1">
                 <div id="usuarioPerfil">
                     <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
+
                 </div>
                 <div id="inicioRegistro">
                     <?php echo $loginLink; ?>
@@ -49,59 +54,120 @@ if (isset($_SESSION['nombreUsuario'])) {
             </div>
         </section>
         <section>
-            <div id="secInfo1">
-                <table class="table table-striped">
-                    <thead class="thead-inverse">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Imagen</th>
-                        </tr>
-                    </thead>
+            <?php
+            include("../phpBack/con_db.php");
+            include("../phpBack/evaluar.php");
+            $cafe = $_GET['id'];
+            $query = "SELECT nombre,imagen,proveedor, escuela FROM cafeteria WHERE idCafeteria = $cafe;";
+            //$query = "SELECT nombre,imagen FROM cafeteria where nombre = 'nombre';"; nombre seleccionado de una opcion previas
 
-                    <tbody>
-                        <?php
-                        include("../phpBack/con_db.php");
-                        $cafe = $_GET['id'];
-                        $query = "SELECT nombre,imagen,proveedor FROM cafeteria WHERE idCafeteria = $cafe;";
-                        //$query = "SELECT nombre,imagen FROM cafeteria where nombre = 'nombre';"; nombre seleccionado de una opcion previas
+            $res = mysqli_query($conex, $query);
+            while ($row = mysqli_fetch_assoc($res)) {
+            ?>
 
-                        $res = mysqli_query($conex, $query);
-                        while ($row = mysqli_fetch_assoc($res)) {
-                        ?>
-                            <tr>
-                                <td>
-                                    <?php echo $row['nombre']; ?>
-                                </td>
-                                <td>
-                                    <img width="100" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
+                <div id="secInfo1">
 
-                                </td>
+                    <?php echo $row['nombre']; ?>
+                    <br>
 
-                                <td>
-                                    <?php echo $row['proveedor']; ?>
-                                </td>
+                    <div id="myBtn">Evaluar</div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form id="evaluar" name="evaluar" action="" method="post" enctype="multipart/form-data">
+                                <label>Servicio:</label>
+                                <br>
+                                <label for="srv1">1</label>
+                                <input type="radio" name="servicio" value="1" id="srv1">
+                                <label for="srv2">2</label>
+                                <input type="radio" name="servicio" value="2" id="srv2">
+                                <label for="srv3">3</label>
+                                <input type="radio" name="servicio" value="3" id="srv3">
+                                <label for="srv4">4</label>
+                                <input type="radio" name="servicio" value="4" id="srv4">
+                                <label for="srv5">5</label>
+                                <input type="radio" name="servicio" value="5" id="srv5">
+                                <br>
+                                <label>Comida:</label>
+                                <br>
+                                <label for="com1">1</label>
+                                <input type="radio" name="comida" value="1" id="com1">
+                                <label for="com2">2</label>
+                                <input type="radio" name="comida" value="2" id="com2">
+                                <label for="com3">3</label>
+                                <input type="radio" name="comida" value="3" id="com3">
+                                <label for="com4">4</label>
+                                <input type="radio" name="comida" value="4" id="com4">
+                                <label for="com5">5</label>
+                                <input type="radio" name="comida" value="5" id="com5">
+                                <br>
+                                <label>Precios:</label>
+                                <br>
+                                <label for="pre1">1</label>
+                                <input type="radio" name="precios" value="1" id="pre1">
+                                <label for="pre2">2</label>
+                                <input type="radio" name="precios" value="2" id="pre2">
+                                <label for="pre3">3</label>
+                                <input type="radio" name="precios" value="3" id="pre3">
+                                <label for="pre4">4</label>
+                                <input type="radio" name="precios" value="4" id="pre4">
+                                <label for="pre5">5</label>
+                                <input type="radio" name="precios" value="5" id="pre5">
+                                <br>
+                                <label for="comentario">comentario:</label>
+                                <input type="text" id="comentario" name="comentario" size="60" maxlength="100" placeholder=""><br>
 
+                                <br>
+                                <input type="submit" value="Enviar">
+                            </form>
+                        </div>
+                    </div>
+                    <script>
+                        // Obtén la referencia al botón y al modal
+                        var btn = document.getElementById("myBtn");
+                        var modal = document.getElementById("myModal");
 
+                        // Obtén la referencia al botón de cerrar
+                        var span = document.getElementsByClassName("close")[0];
 
-
-                            </tr>
-                        <?php
+                        // Cuando el usuario haga clic en el botón, muestra el modal
+                        btn.onclick = function() {
+                            modal.style.display = "block";
                         }
-                        ?>
-                    </tbody>
-                </table>
 
-            </div>
-            <div id="secInfo2">
+                        // Cuando el usuario haga clic en el botón de cerrar, oculta el modal
+                        span.onclick = function() {
+                            modal.style.display = "none";
+                        }
 
-            </div>
-            <div id="secInfo3">
+                        window.onclick = function(event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    </script>
 
-            </div>
-            <div id="secInfo4">
 
-            </div>
+                </div>
+                <div id="secInfo2">
+                    <p class="titsec">Información General</p>
+                    <?php echo $row['Categoria'] = 'cafeteria'; ?>
+                    <?php echo $row['escuela']; ?>
+                    <?php echo $row['ClaGen'] = '5'; ?>
+                    <?php echo $row['proveedor']; ?>
+                </div>
+                <div id="secInfo3">
+                    <p class="titsec">Evaluaciones y comentarios</p>
 
+                </div>
+                <div id="secInfo4">
+                    <p class="titsec">Productos</p>
+
+                </div>
+            <?php
+            }
+            ?>
+            <!-- <img width="100" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>"> -->
         </section>
 
     </main>
