@@ -39,7 +39,25 @@
         </section>
         <section id="contenido">
         
-            <iframe id="conDinamico" name="conDinamico" src="./paginas/paginaInicio.php" title="Main content"></iframe>
+            <section class="PagPrincipal">
+                <?php
+                        include("./phpBack/con_db.php");
+                        $query = "SELECT idCafeteria, nombre, imagen FROM cafeteria;";
+                        $res = mysqli_query($conex, $query);
+                        while ($row = mysqli_fetch_assoc($res)) {
+                        ?>
+                <div class="marco">
+                    <a href="./paginas/cafeteriaInformacion.php?id=<?php echo $row['idCafeteria']; ?>">
+                        <img width="90%"
+                            src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
+                        <br>
+                        <?php echo $row['nombre']; ?>
+                    </a>
+                </div>
+                <?php
+                        }
+                        ?>
+            </section>
         
         </section>
 

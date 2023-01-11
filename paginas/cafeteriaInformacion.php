@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION['nombreUsuario'])) {
+    $loginLink = "<a href='../index.html' id='CerrarSesion'>Cerrar sesión</a>";
+} else {
+    $loginLink = "<a href='../paginas/inicioSesion.php' id='IniciarSesion'>Iniciar sesión</a>
+                        <a href='../paginas/registroUsuario.php' id='Registro'>Registro</a>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,19 +29,23 @@
                 <div>
                     <img id="logo1" alt="logoPrincipal" src="../iconos/LOGOTIPO-05.png" usemap="#PoliLogo">
                     <map name="#PoliLogo">
-                        <area shape="circle" coords="0,0,300," alt="Poli Coff" href="../index.html" title="Poli Coff">
+                        <area shape="circle" coords="0,0,300," alt="Poli Coff" href="./principal.php" title="Poli Coff">
                     </map>
                 </div>
             </div>
             <div>
                 <img id="logo2" alt="logoNombre" src="../iconos/LOGOTIPO-06.png" usemap="#Policoff">
                 <map name="#Policoff">
-                    <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="../index.html" title="Poli Coff">
+                    <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="./principal.php" title="Poli Coff">
                 </map>
             </div>
-            <div id="inicioRegistro">
-                <a href="../paginas/inicioSesion.html" /*target="conDinamico" */ id="IniciarSesion">Iniciar sesión</a>
-                <a href="../paginas/registroUsuario.html" /*target="conDinamico" */ id="Registro">Registro</a>
+            <div id="caja1">
+                <div id="usuarioPerfil">
+                    <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
+                </div>
+                <div id="inicioRegistro">
+                    <?php echo $loginLink; ?>
+                </div>
             </div>
         </section>
         <section>
@@ -43,15 +57,15 @@
                             <th>Imagen</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         <?php
-                        $connection = mysqli_connect("localhost", "root", "", "policoffv2");
-                        $cafe = 1;
+                        include("../phpBack/con_db.php");
+                        $cafe = $_GET['id'];
                         $query = "SELECT nombre,imagen,proveedor FROM cafeteria WHERE idCafeteria = $cafe;";
                         //$query = "SELECT nombre,imagen FROM cafeteria where nombre = 'nombre';"; nombre seleccionado de una opcion previas
 
-                        $res = mysqli_query($connection, $query);
+                        $res = mysqli_query($conex, $query);
                         while ($row = mysqli_fetch_assoc($res)) {
                         ?>
                             <tr>

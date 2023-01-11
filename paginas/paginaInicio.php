@@ -16,25 +16,23 @@
         <section class="PagPrincipal">
             <?php
             include("../phpBack/con_db.php");
-            $query = "SELECT nombre,imagen FROM cafeteria;";
+            $query = "SELECT idCafeteria, nombre, imagen FROM cafeteria;";
             $res = mysqli_query($conex, $query);
             while ($row = mysqli_fetch_assoc($res)) {
             ?>
                 <div class="marco">
-
-
-                    <img width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
-                    <br>
-                    <?php echo $row['nombre']; ?>
-
-
+                        <a href="../paginas/cafeteriaInformacion.php?id=<?php echo $row['idCafeteria']; ?>">
+                        <img width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
+                        <br>
+                        <?php echo $row['nombre']; ?>
+                    </a>
                 </div>
             <?php
             }
             ?>
-
         </section>
     </main>
+
 
 </body>
 
