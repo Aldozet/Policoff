@@ -168,25 +168,52 @@ if (isset($_GET['logout'])) {
 
             <div id="secInfo3">
                 <p class="titsec">Evaluaciones y comentarios</p>
-                <?php
-                $query2 = "SELECT idEvaluacion, fk_producto, fk_cafeteria, fk_usuario, servicio, comida, precio, comentario, fecha FROM evalua WHERE fk_cafeteria = $idCafeteria;";
-                $res2 = mysqli_query($conex, $query2);
-                while ($row = mysqli_fetch_assoc($res2)) {
-                ?>
 
-                    <div id="evapunt">
-                        <?php echo $row['servicio']; ?>
-                        <?php echo $row['comida']; ?>
-                        <?php echo $row['precio']; ?>
-                        <div>
+                <div id="calCom">
+                    <?php
+                        $sql = "SELECT idEvaluacion, fk_producto, fk_cafeteria, fk_usuario, servicio, comida, precio, comentario FROM evalua WHERE fk_cafeteria = $idCafeteria;";
+                        $res = mysqli_query($conex, $sql);
 
-                        </div>
-                    </div>
+                        if (mysqli_num_rows($res) > 0) {
+                            $row = mysqli_fetch_assoc($res);
+                                echo '<div id="evapunt">';
+                                echo '<div>Servicio: '. $row['servicio'].'</div>';
+                                echo '<div>Comida: '. $row['comida'].'</div>';
+                                echo '<div>Precios: '. $row['precio'].'</div>';
+                                echo '</div>';
+                        } else {
+                                echo '<div id="evapunt">';
+                                echo '<div>Servicio: ' . "0" . '</div>';
+                                echo '<div>Comida: ' . "0" . '</div>';
+                                echo '<div>Precios: ' . "0" . '</div>';
+                                echo '</div>';
+                        }
+                        mysqli_free_result($res);
+                    ?>
+                
 
-
-                <?php
-                }
-                ?>
+                    <?php
+                        $res2 = mysqli_query($conex, $sql);
+                        if(mysqli_num_rows($res2) > 0) {
+                            while ($row = mysqli_fetch_assoc($res2)) {
+                                
+                            
+                                echo '<div id="comentad">';
+                                echo htmlspecialchars($row['comentario'], ENT_QUOTES, 'UTF-8');
+                                echo '</div>';
+                            }
+                        } 
+                        
+                    else {
+                            echo '<div id="comentad">';
+                            echo 'No hay comentarios realcionados a esta cafeteria';
+                            echo '</div>';
+                        }
+                    
+                    mysqli_free_result($res2);
+                    ?>
+                </div>
+                
             </div>
 
             <div id="secInfo4">

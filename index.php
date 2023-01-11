@@ -50,10 +50,10 @@
                 while ($row = mysqli_fetch_assoc($res)) {
                 ?>
                     <div class="marco">
-                        <a id="htop3" href="./paginas/cafeteriaInformacion.php?id=<?php echo $row['idCafeteria']; ?>">
+                        <a href="./paginas/cafeteriaInformacion.php?id=<?php echo $row['idCafeteria']; ?>">
                             <img width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
                             <br>
-                            <?php echo $row['nombre']; ?>
+                            <div id="htop3"><?php echo $row['nombre']; ?></div>
                         </a>
                     </div>
                 <?php
