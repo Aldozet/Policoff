@@ -1,23 +1,21 @@
 <?php
 
- /*session_start()
+session_start();
 
-*/
 if (!empty($_POST["Enviar"])) {
-   if (empty($_POST["usuario"]) || empty($_POST["contraseñaUsuario"])) {
+    if (empty($_POST["usuario"]) || empty($_POST["contraseñaUsuario"])) {
         echo '<div class="alerta">Uno o mas campos estan vacios</div>';
-   } else {
+    } else {
         $nombreUsuario = trim($_POST["usuario"]);
         $password = trim($_POST["contraseñaUsuario"]);
         $sql = $conex->query("SELECT `nombreUsuario`, `password` FROM `usuario` WHERE nombreUsuario = '$nombreUsuario' and password = '$password'");
         if ($datos = $sql->fetch_object()) {
+            $_SESSION['nombreUsuario'] = $nombreUsuario;
             header("location: ..\paginas\perfilUsuario.php");
         } else {
             echo '<div class="alerta">Acceso denegado</div>';
         }
     }
-   
 }
-
 
 ?>

@@ -36,25 +36,49 @@
 
         <section>
 
-            <?php session_start();
+            <?php 
+            session_start();
             include("../phpBack/con_db.php");
 
-            $correo = $_SESSION['correo'] = 'vanepoli@ipn.mx';
-            $_SESSION['nombre'] = 'Vanesa';
+            // Verify that a user is logged in
+            if (!isset($_SESSION['nombreUsuario'])) {
+                // Redirect the user to the login page if not
+                header("Location: login.php");
+                exit;
+            }
 
+            $Usuario = $_SESSION['nombreUsuario'];
 
-            echo "Bienvenida  " . $_SESSION['correo'];
-            echo "Bienvenida  " . $_SESSION['nombre'];
+            echo "Bienvenida  " . $_SESSION['nombreUsuario'] . "<br>";
 
             // Select data from the database using the value of the session variable
-            $sql = "SELECT idUsuario, nombre, apellidoMaterno, apellidoPaterno, correoInstitucional, tipo, nombreUsuario FROM usuario WHERE correoInstitucional = '$correo'";
-            $result = mysqli_query($conex, $sql);
+            $sql = "SELECT idUsuario, nombre, apellidoMaterno, apellidoPaterno, correoInstitucional, tipo, nombreUsuario FROM usuario WHERE nombreUsuario = ?";
 
-            // Loop through the result set and output the data
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo $row['idUsuario'] . ' ' . $row['nombre'] . '' . $row['apellidoMaterno'] . '' . $row['apellidoPaterno'] . '' . $row['correoInstitucional'] . '' . $row['tipo'] . '' . $row['nombreUsuario'];
-                echo "<br>";
+            $stmt = mysqli_prepare($conex, $sql);
+            mysqli_stmt_bind_param($stmt, 's', $Usuario);
+
+            $result = mysqli_stmt_execute($stmt);
+
+            //Check if the query return any result
+            if (mysqli_stmt_store_result($stmt)) {
+                if (mysqli_stmt_num_rows($stmt) > 0) {
+                    //Loop through the result set and output the data
+                    mysqli_stmt_bind_result($stmt, $idUsuario, $nombre, $apellidoMaterno, $apellidoPaterno, $correoInstitucional, $tipo, $nombreUsuario);
+                    echo "<div id='usuario-info'>";
+                    while (mysqli_stmt_fetch($stmt)) {
+                        echo "Usuario: " . $nombreUsuario . "<br>";
+                        echo "Nombre: " . $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno . "<br>";
+                        echo "Correo Institucional: " . $correoInstitucional . "<br>";
+                        echo "Tipo: " . $tipo . "<br>";
+                    }
+                    echo "</div>";
+
+                } else {
+                    echo "El usuario no existe en la base de datos";
+                }
             }
+
+            mysqli_stmt_close($stmt);
 
 
             ?>
