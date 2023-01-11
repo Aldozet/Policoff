@@ -103,13 +103,9 @@ iframe {
     height: 900px;
     border: none;
     margin: 5px;
-    overflow: hidden;
 
 }
 
-#conDinamico {
-    overflow: hidden;
-}
 
 #conDinamico::-webkit-scrollbar {
     width: 0;
@@ -193,4 +189,5 @@ footer p {
     margin-right: 1em;
     text-decoration: none; /* Quita subrayado*/
     font-family: 'Century Gothic';
-    font-weight: bold;}
+    font-weight: bold;
+}

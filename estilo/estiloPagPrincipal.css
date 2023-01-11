@@ -11,7 +11,7 @@ body{
     align-items: center;
     /*border: #000 solid;*/
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
 
 }
 
@@ -31,7 +31,7 @@ body{
     height: 22em ;
     border-radius: 1em;
     font-family: 'Century Gothic';
-    overflow: hidden;
+    /*overflow: hidden;*/
 
 }
 
