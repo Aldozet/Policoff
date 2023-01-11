@@ -2,7 +2,9 @@
 session_start();
 if (isset($_SESSION['nombreUsuario'])) {
     $loginLink = "<a href='../index.php?logout' id='CerrarSesion'>Cerrar sesión</a>";
+    $loginLink1 = "<a href='../paginas/perfilUsuario.php' id='PerfilUsuario'>Mi perfil</a>";
 } else {
+    $loginLink1 = "";
     $loginLink = "<a href='../paginas/inicioSesion.php' id='IniciarSesion'>Iniciar sesión</a>
                         <a href='../paginas/registroUsuario.php' id='Registro'>Registro</a>";
 }
@@ -44,7 +46,7 @@ if (isset($_GET['logout'])) {
             </div>
             <div id="caja1">
                 <div id="usuarioPerfil">
-                    <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
+                    <?php echo $loginLink1; ?>
                 </div>
                 <div id="inicioRegistro">
                     <?php echo $loginLink; ?>
@@ -66,7 +68,7 @@ if (isset($_GET['logout'])) {
                 while ($row = mysqli_fetch_assoc($res)) {
                 ?>
                     <div class="marco">
-                        <a href="../paginas/cafeteriaInformacion.php?id=<?php echo $row['idCafeteria']; ?>">
+                        <a id="htop3" href="../paginas/cafeteriaInformacion.php?id=<?php echo $row['idCafeteria']; ?>">
                             <img width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
                             <br>
                             <?php echo $row['nombre']; ?>

@@ -232,10 +232,10 @@ footer p {
 
 
 #caja1 {
-    width: 15em;
+    width: 17em;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
     align-items: center;
     text-decoration: none;
 
@@ -440,5 +440,12 @@ footer p {
     border-radius: 1em;
     padding: 5px;
     padding-left: 1em;
+
+}
+
+#htop3{
+    color: #000;
+    text-align: center;
+    text-decoration: none;
 
 }

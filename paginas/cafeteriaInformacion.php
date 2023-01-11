@@ -2,7 +2,9 @@
 session_start();
 if (isset($_SESSION['nombreUsuario'])) {
     $loginLink = "<a href='../index.php?logout' id='CerrarSesion'>Cerrar sesión</a>";
+    $loginLink1 = "<a href='../paginas/perfilUsuario.php' id='PerfilUsuario'>Mi perfil</a>";
 } else {
+    $loginLink1 = "";
     $loginLink = "<a href='../paginas/inicioSesion.php' id='IniciarSesion'>Iniciar sesión</a>
                         <a href='../paginas/registroUsuario.php' id='Registro'>Registro</a>";
 }
@@ -45,8 +47,7 @@ if (isset($_GET['logout'])) {
             </div>
             <div id="caja1">
                 <div id="usuarioPerfil">
-                    <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
-
+                    <?php echo $loginLink1; ?>
                 </div>
                 <div id="inicioRegistro">
                     <?php echo $loginLink; ?>
@@ -197,18 +198,18 @@ if (isset($_GET['logout'])) {
                     ?>
                         <div class="cajaProductos">
                             <div class="cajaImagen">
-                             <img  width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">   
+                                <img width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">
                             </div>
                             <br>
                             <div class="cajaNombre">
-                            <?php echo $row['nombre']; ?>    
+                                <?php echo $row['nombre']; ?>
                             </div>
                             <br>
                             <div class="cajainterior">
                                 <p>Descripcion:</p>
                                 <?php echo $row['descripcion']; ?>
                                 <br>
-                                <?php echo "Precio: " . $row['precio']."$"; ?>
+                                <?php echo "Precio: " . $row['precio'] . "$"; ?>
                             </div>
                         </div>
                     <?php
