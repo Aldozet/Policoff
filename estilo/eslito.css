@@ -107,6 +107,15 @@ iframe {
 
 }
 
+#conDinamico {
+    overflow: hidden;
+}
+
+#conDinamico::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
 
 #menu_icon { /* inicia css de menu desplegable*/
     width: 24px;
@@ -164,3 +173,24 @@ footer p {
 #ESCOM{
     color: #ffffff;
 }
+
+#RegistroProCaf{
+    display: flex;
+    justify-content: center;
+    padding: 3em;
+
+}
+
+.boton{
+    color: #ffffff; /* color de letra*/
+    background-color: #F68B11; /* color de fondo*/
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 6.5px;
+    padding-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 1em;
+    text-decoration: none; /* Quita subrayado*/
+    font-family: 'Century Gothic';
+    font-weight: bold;}
