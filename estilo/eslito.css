@@ -93,21 +93,18 @@ body {
 
 #CerrarSesion{
 
-        color: #ffffff;
-            /* color de letra*/
-            background-color: #F68B11;
-            /* color de fondo*/
-            border-radius: 1em;
-            padding-left: 1em;
-            padding-right: 1em;
-            padding-top: 6.5px;
-            padding-bottom: 6px;
-            margin-left: 4px;
-            margin-right: 1em;
-            text-decoration: none;
-            /* Quita subrayado*/
-            font-family: 'Century Gothic';
-            font-weight: bold;
+    color: #ffffff;/* color de letra*/
+    background-color: #F68B11;/* color de fondo*/
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 6.5px;
+    padding-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 1em;
+    text-decoration: none;/* Quita subrayado*/
+    font-family: 'Century Gothic';
+    font-weight: bold;        
 
 }
 
@@ -211,9 +208,43 @@ footer p {
     font-weight: bold;
 }
 
+#Saludo{
+    display: flex;
+    justify-content: center;
+    font-size:xx-large;
+    margin: 1em;
+    font-family: 'Century Gothic';
+}
+
 #usuario-info{
-    color: blue;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    font-family: 'Century Gothic';
+    background-color: #F2F2F2;
+    border-radius: 1em;
+    margin-left: 20em;
+    margin-right: 20em;
+    padding-top: 1em;
+
+}
+
+
+
+#caja1 {
+    width: 15em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+#PerfilUsuario {
+    color: #000;
+    text-decoration: none;
+    padding-right: 1em;
+
+
 }

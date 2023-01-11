@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['nombreUsuario'])) {
-    $loginLink = "<a href='../paginas/principal.php' id='CerrarSesion'>Cerrar sesión</a>";
+    $loginLink = "<a href='../index.html' id='CerrarSesion'>Cerrar sesión</a>";
 } else {
     $loginLink = "<a href='../paginas/inicioSesion.php' id='IniciarSesion'>Iniciar sesión</a>
                         <a href='../paginas/registroUsuario.php' id='Registro'>Registro</a>";
@@ -38,8 +38,13 @@ if (isset($_SESSION['nombreUsuario'])) {
                     <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="../paginas/principal.php" title="Poli Coff">
                 </map>
             </div>
-            <div id="inicioRegistro">
-                <?php echo $loginLink; ?>
+            <div id="caja1">
+                <div id="usuarioPerfil">
+                    <a href="../paginas/perfilUsuario.php" id="PerfilUsuario">Mi perfil</a>
+                </div>
+                <div id="inicioRegistro">
+                    <?php echo $loginLink; ?>
+                </div>
             </div>
         </section>
 

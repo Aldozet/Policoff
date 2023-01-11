@@ -13,6 +13,7 @@ if (isset($_POST['Enviar'])) {
         $categoria= trim($_POST['Categoria']);
         $institucion = trim($_POST['Institucion']);
         $proveedor = trim($_POST['Proveedor']);
+        $fk_escuelaTem = "1";
 
         if (count($_FILES) > 0) {
 
@@ -30,10 +31,10 @@ if (isset($_POST['Enviar'])) {
         {
             // Prepara la sentencia SQL
             $stmt = mysqli_stmt_init($conex);
-            if (mysqli_stmt_prepare($stmt, "INSERT INTO `cafeteria`(`idCafeteria`, `nombre`, `imagen`, `fk_escuela`, `Proveedor`) VALUES (?,?,?,?,?)")) {
+            if (mysqli_stmt_prepare($stmt, "INSERT INTO `cafeteria`(`idCafeteria`, `nombre`, `imagen`, `fk_escuela`, `Proveedor`,`escuela`) VALUES (?,?,?,?,?,?)")) {
                 // Vincula las variables a los parámetros de la sentencia
 
-                mysqli_stmt_bind_param($stmt, "issss", $idCafeteria, $datosGenerales, $imagen, $institucion, $proveedor);
+                mysqli_stmt_bind_param($stmt, "isssss", $idCafeteria, $datosGenerales, $imagen, $fk_escuelaTem , $proveedor, $institucion);
                 mysqli_stmt_execute($stmt);
 
                 $num_rows = mysqli_stmt_affected_rows($stmt);

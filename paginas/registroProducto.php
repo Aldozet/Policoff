@@ -20,7 +20,7 @@
                 <div>
                     <img id="logo1" alt="logoPrincipal" src="../iconos/LOGOTIPO-05.png" usemap="#PoliLogo">
                     <map name="#PoliLogo">
-                        <area shape="circle" coords="0,0,300," alt="Poli Coff" href="../index.html" title="Poli Coff">
+                        <area shape="circle" coords="0,0,300," alt="Poli Coff" href="../paginas/principal.php" title="Poli Coff">
                     </map>
                 </div>
             </div>
@@ -28,7 +28,7 @@
             <div>
                 <img id="logo2" alt="logoPrincipal" src="../iconos/LOGOTIPO-06.png" usemap="#Policoff">
                 <map name="#Policoff">
-                    <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="../index.html" title="Poli Coff">
+                    <area shape="rect" coords="0,0,250,50" alt="Poli Coff" href="../paginas/principal.php" title="Poli Coff">
                 </map>
             </div>
             <div id="usuarioPerfil">
@@ -49,7 +49,7 @@
                 include("../phpBack/regProducto.php");
                 ?>
                 <div class="registroPro">
-                    
+
 
                     <label for="DescripcionProducto">Descripción:</label>
                     <input type="text" id="DescripcionProducto" name="DescripcionProducto" size="30" maxlength="30" placeholder="Nombre del producto" required=""><br>

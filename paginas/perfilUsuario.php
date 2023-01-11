@@ -48,9 +48,9 @@
             }
 
             $Usuario = $_SESSION['nombreUsuario'];
-
-            echo "Bienvenida  " . $_SESSION['nombreUsuario'] . "<br>";
-
+            echo "<div id='Saludo'>";
+            echo "Bienvenido  " . $_SESSION['nombreUsuario'] . "<br>";
+            echo "</div>";
             // Select data from the database using the value of the session variable
             $sql = "SELECT idUsuario, nombre, apellidoMaterno, apellidoPaterno, correoInstitucional, tipo, nombreUsuario FROM usuario WHERE nombreUsuario = ?";
 
@@ -66,10 +66,10 @@
                     mysqli_stmt_bind_result($stmt, $idUsuario, $nombre, $apellidoMaterno, $apellidoPaterno, $correoInstitucional, $tipo, $nombreUsuario);
                     echo "<div id='usuario-info'>";
                     while (mysqli_stmt_fetch($stmt)) {
-                        echo "Usuario: " . $nombreUsuario . "<br>";
-                        echo "Nombre: " . $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno . "<br>";
-                        echo "Correo Institucional: " . $correoInstitucional . "<br>";
-                        echo "Tipo: " . $tipo . "<br>";
+                        echo "Usuario: " . $nombreUsuario . "<br>" . "<br>";
+                        echo "Nombre: " . $nombre . " " . $apellidoPaterno . " " . $apellidoMaterno . "<br>" . "<br>";
+                        echo "Correo Institucional: " . $correoInstitucional . "<br>" . "<br>";
+                        echo "Tipo: " . $tipo . "<br>" . "<br>";
                     }
                     echo "</div>";
                 } else {
