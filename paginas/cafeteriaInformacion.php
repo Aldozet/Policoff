@@ -53,21 +53,24 @@ if (isset($_GET['logout'])) {
                 </div>
             </div>
         </section>
-        <section>
+        <section id="SecSup">
             <?php
             include("../phpBack/con_db.php");
             include("../phpBack/evaluar.php");
             $cafe = $_GET['id'];
-            $query = "SELECT nombre,imagen,proveedor, escuela FROM cafeteria WHERE idCafeteria = $cafe;";
+            $query = "SELECT idCafeteria,nombre,imagen,proveedor, escuela FROM cafeteria WHERE idCafeteria = $cafe;";
+            $query3 = "SELECT idProducto, nombre, imagen, precio, tipo, descripcion FROM producto";
             //$query = "SELECT nombre,imagen FROM cafeteria where nombre = 'nombre';"; nombre seleccionado de una opcion previas
+
 
             $res = mysqli_query($conex, $query);
             while ($row = mysqli_fetch_assoc($res)) {
+                $idCafeteria =  $row['idCafeteria'];
             ?>
 
                 <div id="secInfo1">
 
-                    <?php echo $row['nombre']; ?>
+                    <div id="tituloCafeteria"><?php echo $row['nombre']; ?></div>
                     <br>
 
                     <div id="myBtn">Evaluar</div>
@@ -146,28 +149,75 @@ if (isset($_GET['logout'])) {
                             }
                         }
                     </script>
-
-
                 </div>
+
                 <div id="secInfo2">
                     <p class="titsec">Información General</p>
-                    <?php echo $row['Categoria'] = 'cafeteria'; ?>
-                    <?php echo $row['escuela']; ?>
-                    <?php echo $row['ClaGen'] = '5'; ?>
-                    <?php echo $row['proveedor']; ?>
-                </div>
-                <div id="secInfo3">
-                    <p class="titsec">Evaluaciones y comentarios</p>
-
-                </div>
-                <div id="secInfo4">
-                    <p class="titsec">Productos</p>
-
+                    <div id="secCom2">
+                        <div class="sec2in"><?php echo $row['Categoria'] = 'cafeteria'; ?></div>
+                        <div class="sec2in"><?php echo $row['escuela']; ?></div>
+                        <div class="sec2in"><?php echo $row['ClaGen'] = '5'; ?></div>
+                        <div class="sec2in"><?php echo $row['proveedor']; ?></div>
+                    </div>
                 </div>
             <?php
             }
             ?>
-            <!-- <img width="100" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>"> -->
+
+
+            <div id="secInfo3">
+                <p class="titsec">Evaluaciones y comentarios</p>
+                <?php
+                $query2 = "SELECT idEvaluacion, fk_producto, fk_cafeteria, fk_usuario, servicio, comida, precio, comentario, fecha FROM evalua WHERE fk_cafeteria = $idCafeteria;";
+                $res2 = mysqli_query($conex, $query2);
+                while ($row = mysqli_fetch_assoc($res2)) {
+                ?>
+
+                    <div id="evapunt">
+                        <?php echo $row['servicio']; ?>
+                        <?php echo $row['comida']; ?>
+                        <?php echo $row['precio']; ?>
+                        <div>
+
+                        </div>
+                    </div>
+
+
+                <?php
+                }
+                ?>
+            </div>
+
+            <div id="secInfo4">
+                <p class="titsec">Productos</p>
+                <div id="ordenproducto">
+                    <?php
+                    $res3 = mysqli_query($conex, $query3);
+                    while ($row = mysqli_fetch_assoc($res3)) {
+                    ?>
+                        <div class="cajaProductos">
+                            <div class="cajaImagen">
+                             <img  width="90%" src="data:<?php echo $row['nombre']; ?>;base64,<?php echo  base64_encode($row['imagen']); ?>">   
+                            </div>
+                            <br>
+                            <div class="cajaNombre">
+                            <?php echo $row['nombre']; ?>    
+                            </div>
+                            <br>
+                            <div class="cajainterior">
+                                <p>Descripcion:</p>
+                                <?php echo $row['descripcion']; ?>
+                                <br>
+                                <?php echo "Precio: " . $row['precio']."$"; ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+
         </section>
 
     </main>

@@ -280,13 +280,24 @@ footer p {
 
 }
 
+#SecSup{
+    display: flex;
+    flex-flow: column wrap;
+}
+
 #secInfo1{
 
     background-image: url(../imagenes/Web-Desing-06.png);
+    background-color: #F68B11;
     height: 10em;
     margin: 1em;
     border-radius: 1em;
     padding: 1em;
+}
+
+#tituloCafeteria{
+
+    font-size:4em;
 }
 
 /* Oculta el modal por defecto */
@@ -335,13 +346,40 @@ footer p {
 
 #secInfo2 {
 
-    border: #000 solid;
-    height: 10em;
+    border-bottom: #b8b0b0 solid;
+    height: 8em;
     margin: 1em;
-    border-radius: 1em;
-
     padding: 1em;
 }
+
+#evapunt{
+    border: #000 solid;
+    
+}
+
+#secCom2{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.sec2in{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b8b0b0;
+    text-align: center;
+    border: #f2f2f2 solid;
+    border-radius: 1em;
+    width: 15em;
+    height: 3em;
+    margin: 2em;
+    margin-top: 0em;
+
+}
+
 
 #secInfo3 {
 
@@ -354,18 +392,51 @@ footer p {
 }
 
 #secInfo4 {
-
+    display: flex;
+    flex-flow: column wrap;
     border: #000 solid;
-    height: 10em;
+    height: auto;
     margin: 1em;
     border-radius: 1em;
 
     padding: 1em;
 }
 
+#ordenproducto{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.cajaProductos{
+    padding: 5px;
+    width: 13em;
+    height: 25em;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+
+    flex-flow: column;
+    align-items:center;
+
+}
+
+.cajaImagen{
+
+    width: 8em;
+    border: #fff solid 1em;
+    border-radius: 5em;
+    overflow: hidden;
+}
+
+.cajainterior{
+
+    border: #f2f2f2 solid;
+    border-radius: 1em;
+}
+
 .titsec{
 
-    border: #000 solid;
+    border: #f2f2f2 solid;
     border-radius: 1em;
     padding: 5px;
     padding-left: 1em;
